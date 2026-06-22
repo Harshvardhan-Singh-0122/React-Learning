@@ -1,0 +1,11 @@
+To create the folder of react we write : 
+--      npm create vite 
+vite is a bundler...
+
+to create the boiler plate code for any component we write :
+--      rafce (reactArrowFunctionExport component)
+
+
+to run the project the command in the terminal is :
+--      npm run dev
+
