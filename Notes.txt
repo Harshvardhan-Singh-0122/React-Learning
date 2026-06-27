@@ -1,11 +1,25 @@
-To create the folder of react we write : 
+##To create the folder of react we write : 
 --      npm create vite 
 vite is a bundler...
 
-to create the boiler plate code for any component we write :
+##To create the boiler plate code for any component we write :
 --      rafce (reactArrowFunctionExport component)
 
 
-to run the project the command in the terminal is :
+##To run the project the command in the terminal is :
 --      npm run dev
 
+##To download the tailwind css run the command in the terminal :
+--      npm install tailwindcss @tailwindcss/vite
+--      then go to vite.config.js file in the project and add this 2 things :
+            --      import tailwindcss from '@tailwindcss/vite'
+            --      and replay this -> plugins: [react(), tailwindcss()],
+--      add this in index.css
+            --      @import "tailwindcss";
+
+
+## Two way Binding :
+--      Directly apan DOM sai interect krne ke bajaye apan react ko bolte h DOM sai interect krne ke liye 
+        for eg. using useState we can handle the form and input. like 06-formHandle... 
+        agar form ke data ko use krna, form mai changes krna, input mai changes krna tho apan two way
+        binding ka use krte h..
