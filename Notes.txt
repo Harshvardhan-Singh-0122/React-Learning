@@ -22,4 +22,88 @@ vite is a bundler...
 --      Directly apan DOM sai interect krne ke bajaye apan react ko bolte h DOM sai interect krne ke liye 
         for eg. using useState we can handle the form and input. like 06-formHandle... 
         agar form ke data ko use krna, form mai changes krna, input mai changes krna tho apan two way
-        binding ka use krte h..
+        binding ka use krte h..f
+
+
+## Local Storage
+--      4 Methods are their -
+        --      1. localStorage.clear()
+                2. localStorage.getItem('key')
+                3. localStorage.setItem('key','value')
+                4. localStorage.removeItem('key')
+
+--      and when we want to store the object or array they we have to convert the object or array into string to store in localStorage
+        with the help of JSON.stringify(object_name or array_name)
+        code--
+                const user = {name: 'Harsh', age: '18'}
+                JSON.stringify(user)
+                localStorage.setItem('userDetail', user);
+
+--      and to use this by taking from localStorage we need to parse this string into object or array by the help of 
+        JSON.parse(object_name or array_name)
+        code--
+                const user = localStorage.getItem('userDetail')
+                JSON.parse(user)
+
+## API calling
+--      using fetch()
+        code--
+                const getData = async () =>{
+                        const res = await fetch('API_URL');
+                        clg(res);
+
+                        const data = await res.data;
+                        clg(data);
+                }
+
+--      using axios
+        -- first we have to install the axios by writing this command in the terminal
+                npm i axios
+        -- Then we have to import the axios in the file by 
+                import axios from 'axios'
+        code--
+                const getData = async () =>{
+                        const res = await axios.get('API_URL');
+                        clg(res);
+                        clg(res.data); //no need for await for the data
+                }
+
+        some free api websites are
+                1. lorem picsum
+                2.
+
+
+## UseEffect()
+--      side by side multiple cheezo ko chalane ke kaam aata h.
+        yeh basically parallely cheezo ko nahi chalata balki yeh jo bhi apni process h jisko apan ko side by side chalana h usko
+          side stack mai store krke rakhta h jisko apan "MICRO TASK QUEUE" bolte h.
+        *Iski puri workflow samajna h baad mai...? with the help of any dedicated video.....
+
+        One more thing jab bhi apan state ko change karenge in the website then har baar useEffect chalta hua dikhega 
+        jo ki proper use nahi h iska
+        for eg.--
+        code--
+                const[num, setNum] = useState(0);
+
+                useEffect(()=>{
+                        clg('use Effect is running...');
+                })
+
+                <h1> {num} </h1>
+                <button onClick{()=>{
+                        setNum(10);
+                }} >click</button>
+        ab is code mai jb bhi apan button ko click krenge tho console pe har baar use Effect is running... print hota hua dikhega 
+        jo ki sahi cheez nahi h is cheez ko apan bolte h "MOUNTING".
+
+        or agar apan sirf ek hi baar mount krna chahte h tho apan ko as a second (2nd) parameter in the useEffect ek empty array pass krni
+        padegi
+        code--
+                useEffect(()=>{
+                        clg('use Effect is running...');
+                },[])
+        now ab har bar change nahi hoga it ois possible by this array and this array is called "DEPENDANCY ARRAY"
+
+        or agar jab is "DEPENDANCY ARRAY" ke andar kuch bhi likhte h tho wo uski state change hone par chalega which means
+        agar maine array ke andar num likha hota tho jab bhi mai button ko click kr raha hu tho num ki state change ho rahi h or 
+        num ki state pe depend kr raha h apna useEffect tho wo bhi chalega...
